@@ -11,23 +11,25 @@ angular.module('app.login', [
   });
 }])
 
-.controller('LoginCtrl', [function($scope) {
-    $scope.login = function() {
-      $scope.dataLoading = true;
-      fakeLogin($scope.username, $scope.password, function(response) {
-        if(response.success) {
-          console.log($scope.username, $scope.password);
-          $location.path('/');
-        } else {
-          $scope.error = response.message;
-          $scope.dataLoading = false;
-        }
-      });
-    }
+.controller('LoginCtrl',
+    ["$scope",'$timeout', '$location',
+    function($scope, $timeout, $location) {
+      $scope.login = function() {
+        $scope.dataLoading = true;
+        fakeLogin($scope.user.username, $scope.user.password, $timeout, function(response) {
+          if(response.success) {
+            console.log($scope.user.username, $scope.user.password);
+            $location.path('/');
+          } else {
+            $scope.error = response.message;
+            $scope.dataLoading = false;
+          }
+        });
+      }
 }]);
 
 
-var fakeLogin = function (username, password, callback) {
+var fakeLogin = function (username, password, $timeout, callback) {
 
   /* Dummy authentication for testing, uses $timeout to simulate api call
    ----------------------------------------------*/

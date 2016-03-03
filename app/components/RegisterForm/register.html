@@ -5,10 +5,10 @@
 </p>
 
 
-<div class="col-sm-6">
+<div class="col-sm-6" ng-controller="RegisterCtrl">
   <!-- FORM ============ -->
 
-  <form name="userForm" ng-submit="submitForm()" novalidate>
+  <form name="userForm" ng-submit="register()" novalidate>
 
     <!-- NAME -->
     <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
