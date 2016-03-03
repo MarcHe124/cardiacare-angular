@@ -2,7 +2,7 @@
 
 angular.module('app.signin', [
   'ngRoute',
-  'app.login',
+
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -13,6 +13,7 @@ angular.module('app.signin', [
 
 .directive("login", function() {
   return {
-    templateUrl: "components/LoginForm/login.html"
+    templateUrl: "components/LoginForm/login.html",
+
   }
 })

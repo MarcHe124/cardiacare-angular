@@ -13,6 +13,7 @@ angular.module('app.signup', [
 
 .directive("register", function() {
   return {
-    templateUrl: "components/RegisterForm/register.html"
+    templateUrl: "components/RegisterForm/register.html",
+
   }
 });
